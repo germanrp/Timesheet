@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<title>Timesheet for projects</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+
+<meta charset="utf-8">
+</head>
+<body ng-app="MyApp" ng-controller="mainController">
+
+	<div class="container-fluid custom-header-style">
+		<div class="container">
+			<div class="row">
+				<div class="col col-7 center-block">
+					<a href="#" class="navbar-brand">[Logo]</a> <a
+						class="navbar-toggle" data-toggle="collapse"
+						data-target=".navbar-collapse"> <span
+						class="glyphicon glyphicon-bar"></span>
+					</a>
+					<div class="navbar-collapse collapse justify-left">
+						<ul class="nav navbar-nav">
+							<li><a href="#" class="uppercase">Home</a></li>
+							<li><a href="#" class="uppercase">Schedule</a></li>
+							<li><a href="#" class="uppercase">Track</a></li>
+							<li><a href="#" class="uppercase">Bill</a></li>
+						</ul>
+
+					</div>
+					<div class="justify-right">
+						<ul class="nav navbar-nav">
+							<li><a href="#">Welcome, {{userData.user}}</a></li>
+							<li><a href="#">Settings</a></li>
+							<li><a href="#">Log off</a></li>
+						</ul>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<nav class="navbar navbar-inverse" data-spy="affix"
+		data-offset-top="47">
+		<div class="top-panel-color">
+			<div class="container">
+				<div class="row">
+					<div class="col col-7 center-block">
+						<div class="top-panel">
+							<form class="form-inline">
+								<div class="form-group">
+									<label for="inputOwner"><b>Timesheet for</b></label> <input
+										type="text" class="form-control" id="inputOwner"
+										value="{{userData.user}}">
+								</div>
+								<div class="form-group">
+									<label for="inputTimeRange"><b>for the week of</b></label> <input
+										type="text" class="form-control" id="inputTimeRange"
+										value="{{userData.week}}">
+								</div>
+								<div class="justify-right">
+
+									<button type="submit" class="btn btn-primary">Save All</button>
+									<button type="submit" class="btn btn-primary">Submit
+										All</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div class="container">
+				<div class="row">
+					<div class="col col-7 center-block">
+						<div id="main-panel">
+							<div class="search-box-adjustment">
+								<div class="search-box col-xs-3">
+									<form>
+										<label id="large-message">Add a Project or task:</label>
+										<div class="search">
+											<span class="fa fa-search"></span> <input>
+										</div>
+									</form>
+									<label id="small-message">Enter a client/project/task
+										name or code</label>
+
+								</div>
+							</div>
+							<div class="totals-for-week col-xs-9">
+								<ul class="dates">
+									<li ng-repeat="week in listOfProjects.total_week">{{week.week_day}}</li>
+									<li>Week</li>
+								</ul>
+								<ul class="weekdays">
+									<li ng-repeat="name in listOfProjects.total_week">{{name.label}}</li>
+									<li>Total</li>
+								</ul>
+								<ul class="total-day">
+									<li ng-repeat="hours in listOfProjects.total_week">{{hours.hours}}</li>
+									<li>{{listOfProjects.total_overall[0].value}}</li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container-fluid fix-height">
+		<div class="container">
+			<div class="row">
+				<div class="col col-7 center-block">
+					<table class="my-projects">
+						<thead>
+							<tr class="section-format">
+								<th class="col-xs-3 uppercase">Billable</th>
+								<th class="col-xs-1">0</th>
+								<th class="col-xs-1">7</th>
+								<th class="col-xs-1">9</th>
+								<th class="col-xs-1">10</th>
+								<th class="col-xs-1">15</th>
+								<th class="col-xs-1">0</th>
+								<th class="col-xs-1">7</th>
+								<th class="col-xs-2"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td data-search="Task1" class="field-label col-xs-3 active">Task1</td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="10.0" readonly data-toggle="modal"
+									data-target="#myModal"></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="4.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="4.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="2.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-2">23.00</td>
+							</tr>
+							<tr>
+								<td data-search="Task1" class="field-label col-xs-3 active">Task2</td>
+								<td class="col-xs-1 red-border"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1 gray-background"><input type="text"
+									class="form-control" value="2.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-2">8.0</td>
+							</tr>
+							<tr>
+								<td data-search="Task1" class="field-label col-xs-3 active">Task3</td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="2.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-2">8.0</td>
+							</tr>
+							<tr>
+								<td data-search="Task1" class="field-label col-xs-3 active">Task4</td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="2.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-2">8.0</td>
+							</tr>
+
+							<tr>
+								<td data-search="Task1" class="field-label col-xs-3 active">Task5</td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="2.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-2">8.0</td>
+							</tr>
+							<tr>
+								<td data-search="Task1" class="field-label col-xs-3 active">Task6</td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="2.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-2">8.0</td>
+							</tr>
+							<tr>
+								<td data-search="Task1" class="field-label col-xs-3 active">Task7</td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="2.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-2">8.0</td>
+							</tr>
+							<tr>
+								<td data-search="Task1" class="field-label col-xs-3 active">Task8</td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="2.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-2">8.0</td>
+							</tr>
+							<tr>
+								<td data-search="Task1" class="field-label col-xs-3 active">Task9</td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="2.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-2">8.0</td>
+							</tr>
+							<tr>
+								<td data-search="Task1" class="field-label col-xs-3 active">Task10</td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="2.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-2">8.0</td>
+							</tr>
+						</tbody>
+					</table>
+					<table class="my-projects">
+						<thead>
+							<tr class="section-format">
+								<th class="col-xs-3 uppercase">Non Billable</th>
+								<th class="col-xs-1">0</th>
+								<th class="col-xs-1">7</th>
+								<th class="col-xs-1">9</th>
+								<th class="col-xs-1">10</th>
+								<th class="col-xs-1">15</th>
+								<th class="col-xs-1">0</th>
+								<th class="col-xs-1">7</th>
+								<th class="col-xs-2"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td data-search="Task1" class="field-label col-xs-3 active">Task2</td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="2.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-2">8.0</td>
+							</tr>
+							<tr>
+								<td data-search="Task1" class="field-label col-xs-3 active">Task3</td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="2.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-2">8.0</td>
+							</tr>
+							<tr>
+								<td data-search="Task1" class="field-label col-xs-3 active">Task4</td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="2.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-2">8.0</td>
+							</tr>
+							<tr>
+								<td data-search="Task1" class="field-label col-xs-3 active">Task2</td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="2.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-2">8.0</td>
+							</tr>
+							<tr>
+								<td data-search="Task1" class="field-label col-xs-3 active">Task3</td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="2.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-2">8.0</td>
+							</tr>
+							<tr>
+								<td data-search="Task1" class="field-label col-xs-3 active">Task4</td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="2.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-2">8.0</td>
+							</tr>
+							<tr>
+								<td data-search="Task1" class="field-label col-xs-3 active">Task2</td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="2.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-2">8.0</td>
+							</tr>
+							<tr>
+								<td data-search="Task1" class="field-label col-xs-3 active">Task3</td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="2.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-2">8.0</td>
+							</tr>
+							<tr>
+								<td data-search="Task1" class="field-label col-xs-3 active">Task4</td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="2.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-2">8.0</td>
+							</tr>
+							<tr>
+								<td data-search="Task1" class="field-label col-xs-3 active">Task2</td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="2.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-2">8.0</td>
+							</tr>
+							<tr>
+								<td data-search="Task1" class="field-label col-xs-3 active">Task3</td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="2.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-2">8.0</td>
+							</tr>
+							<tr>
+								<td data-search="Task1" class="field-label col-xs-3 active">Task4</td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="3.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="2.0" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-1"><input type="text"
+									class="form-control" value="" readonly></td>
+								<td class="col-xs-2">8.0</td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div id="myModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Modal Header</h4>
+				</div>
+				<div class="modal-body">
+					<p>Some text in the modal.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<!-- JavaScript Includes -->
+
+	<script type="text/javascript" src="js/vendor/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="js/vendor/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/vendor/angular.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/services/apiService.js"></script>
+	<script type="text/javascript" src="js/controllers/mainController.js"></script>
+
+</body>
+</html>
+
+

@@ -1,0 +1,190 @@
+@import
+	url("//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css")
+	;
+
+.affix {
+	top: 0;
+	width: 100%;
+}
+
+.affix+.container-fluid {
+	padding-top: 169px;
+}
+
+.custom-header-style {
+	height: 50px;
+	background-color: #a3a2a2;
+	background-image: none;
+}
+
+.my-projects td {
+	padding: 2px;
+}
+
+.my-projects tr {
+	border-bottom: solid 1px black;
+}
+
+.form-control {
+	border: 1;
+	box-shadow: none;
+	border: 1px dotted #000000;
+}
+
+input {
+	text-align: center;
+	border-radius: 0px;
+}
+
+.fix-height {
+	height: 1000px;
+}
+
+body {
+	background-color: #E6E6E6;
+}
+
+ul {
+	list-style-type: none;
+}
+
+.dates {
+	margin: 0;
+	background-color: #E6E6E6;
+}
+
+.dates li {
+	display: inline-block;
+	width: 11%;
+	color: #666;
+	text-align: right;
+	font-size: x-small;
+}
+
+.weekdays {
+	margin: 0;
+	background-color: #E6E6E6;
+}
+
+.weekdays li {
+	display: inline-block;
+	width: 11%;
+	color: #666;
+	border-bottom: 2px solid #000000;
+	text-align: right;
+	font-weight: bold;
+}
+
+.total-day {
+	margin: 0;
+	background-color: #E6E6E6;
+}
+
+.total-day li {
+	display: inline-block;
+	width: 11%;
+	color: #666;
+	text-align: right;
+	font-size: x-large;
+}
+
+.navbar-brand {
+	color: #f8f8f8;
+}
+
+a {
+	color: #f8f8f8;
+}
+
+a.uppercase {
+	text-transform: uppercase;
+}
+
+label {
+	padding-right: 5px;
+	padding-left: 5px;
+}
+
+label#small-message {
+	font-size: x-small;
+}
+
+label#large-message {
+	font-size: medium;
+}
+
+.search-box-adjustment {
+	padding-top: 10px;
+}
+
+.top-panel {
+	margin: 10px;
+}
+
+.top-panel-color {
+	background-color: #ccc;
+}
+
+.search-box {
+	background-color: #ffffff;
+	float: left;
+}
+
+.search-box
+.search {
+	position: relative;
+	color: #aaa;
+	font-size: 16px;
+}
+
+.search-box
+.search input {
+	width: 200px;
+	height: 32px;
+	background: #fcfcfc;
+	border: 1px solid #aaa;
+	border-radius: 5px;
+	box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+}
+
+.search-box
+.search input {
+	text-indent: 32px;
+}
+
+.search .fa-search {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+
+@media only screen and (min-width: 768px) {
+	.navbar-nav {
+		float: none !important;
+	}
+}
+
+.justify-right {
+	float: right;
+}
+
+.justify-left {
+	float: left;
+}
+
+.section-format {
+	height: 52px;
+	background: gray; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#E8E8E8, #BEBEBE); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#E8E8E8, #BEBEBE); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#E8E8E8, #BEBEBE); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#E8E8E8, #BEBEBE); /* Standard syntax (must be last) */
+}
+
+.red-border td{
+	border: 1px dotted red !important;
+}
+
+.gray-background td{
+	background-color: #000000 !important;
+}

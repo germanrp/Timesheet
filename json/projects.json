@@ -1,0 +1,594 @@
+{
+	"user": "David Katz",
+	"week": "10 Apr 2011",
+	"projects": {
+		"total_week": [
+			{
+				"week_day": "10 Apr",
+				"label": "Sun",
+				"hours": "0"
+			},
+			{
+				"week_day": "11 Apr",
+				"label": "Mon",
+				"hours": "0"
+			},
+			{
+				"week_day": "12 Apr",
+				"label": "Tue",
+				"hours": "0"
+			},
+			{
+				"week_day": "13 Apr",
+				"label": "Wed",
+				"hours": "0"
+			},
+			{
+				"week_day": "14 Apr",
+				"label": "Thu",
+				"hours": "0"
+			},
+			{
+				"week_day": "15 Apr",
+				"label": "Fri",
+				"hours": "0"
+			},
+			{
+				"week_day": "16 Apr",
+				"label": "Sat",
+				"hours": "0"
+			}
+		],
+		"total_overall": [
+			{
+				"value": "34.00"
+			}
+		],
+		"billable": [
+			{
+				"weekly_hours": [
+					{
+						"day": "Sunday",
+						"hours": ""
+					},
+					{
+						"day": "Monday",
+						"hours": "13.00"
+					},
+					{
+						"day": "Tuesday",
+						"hours": "6.00"
+					},
+					{
+						"day": "Wednesday",
+						"hours": "7.00"
+					},
+					{
+						"day": "Thursday",
+						"hours": "6.00"
+					},
+					{
+						"day": "Friday",
+						"hours": "2.00"
+					},
+					{
+						"day": "Saturday",
+						"hours": ""
+					}
+				],
+				"details": [
+					{
+						"id": "001",
+						"name": "Acme Mfg. Intranet Integration",
+						"type": "Acme Manufacturing",
+						"code": "9999999",
+						"total_hours": [
+							{
+								"day": "Sunday",
+								"hours": ""
+							},
+							{
+								"day": "Monday",
+								"hours": "10.00"
+							},
+							{
+								"day": "Tuesday",
+								"hours": "6.00"
+							},
+							{
+								"day": "Wednesday",
+								"hours": "7.00"
+							},
+							{
+								"day": "Thursday",
+								"hours": "6.00"
+							},
+							{
+								"day": "Friday",
+								"hours": "2.00"
+							},
+							{
+								"day": "Saturday",
+								"hours": ""
+							}
+						],
+						"tasks": [
+							{
+								"name": "Determine Scope",
+								"weekly_hours": [
+									{
+										"day": "Sunday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Monday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Tuesday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Wednesday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Thursday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Friday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Saturday",
+										"hours": "",
+										"status": "unspecified"
+									}
+								],
+								"weekly_total": [
+									{
+										"hours": ""
+									}
+								]
+							},
+							{
+								"name": "Gather Requirements",
+								"weekly_hours": [
+									{
+										"day": "Sunday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Monday",
+										"hours": "10.0",
+										"status": "rejected"
+									},
+									{
+										"day": "Tuesday",
+										"hours": "3.0",
+										"status": "approved"
+									},
+									{
+										"day": "Wednesday",
+										"hours": "4.0",
+										"status": "submitted"
+									},
+									{
+										"day": "Thursday",
+										"hours": "4.0",
+										"status": "clean"
+									},
+									{
+										"day": "Friday",
+										"hours": "2.0",
+										"status": "clean"
+									},
+									{
+										"day": "Saturday",
+										"hours": "",
+										"status": "unspecified"
+									}
+								],
+								"weekly_total": [
+									{
+										"hours": "23.00"
+									}
+								]
+							},
+							{
+								"name": "Interview users",
+								"weekly_hours": [
+									{
+										"day": "Sunday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Monday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Tuesday",
+										"hours": "3.00",
+										"status": "dirty"
+									},
+									{
+										"day": "Wednesday",
+										"hours": "3.00",
+										"status": "dirty"
+									},
+									{
+										"day": "Thursday",
+										"hours": "2.00",
+										"status": "clean"
+									},
+									{
+										"day": "Friday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Saturday",
+										"hours": "",
+										"status": "unspecified"
+									}
+								],
+								"weekly_total": [
+									{
+										"hours": "8.00"
+									}
+								]
+							}
+						]
+					},
+					{
+						"id": "003",
+						"name": "Melcher -- Web Banking Design",
+						"type": "Melcher Bank",
+						"code": "9999999",
+						"total_hours": [
+							{
+								"day": "Sunday",
+								"hours": ""
+							},
+							{
+								"day": "Monday",
+								"hours": ""
+							},
+							{
+								"day": "Tuesday",
+								"hours": ""
+							},
+							{
+								"day": "Wednesday",
+								"hours": ""
+							},
+							{
+								"day": "Thursday",
+								"hours": ""
+							},
+							{
+								"day": "Friday",
+								"hours": ""
+							},
+							{
+								"day": "Saturday",
+								"hours": ""
+							}
+						],
+						"tasks": [
+							{
+								"name": "Implement functionality",
+								"weekly_hours": [
+									{
+										"day": "Sunday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Monday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Tuesday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Wednesday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Thursday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Friday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Saturday",
+										"hours": "",
+										"status": "unspecified"
+									}
+								],
+								"weekly_total": [
+									{
+										"hours": ""
+									}
+								]
+							},
+							{
+								"name": "Conduct unit tests",
+								"weekly_hours": [
+									{
+										"day": "Sunday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Monday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Tuesday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Wednesday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Thursday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Friday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Saturday",
+										"hours": "",
+										"status": "unspecified"
+									}
+								],
+								"weekly_total": [
+									{
+										"hours": ""
+									}
+								]
+							}
+						]
+					}
+				]
+			}
+		],
+		"non billable": [
+			{
+				"weekly_hours": [
+					{
+						"day": "Sunday",
+						"hours": ""
+					},
+					{
+						"day": "Monday",
+						"hours": ""
+					},
+					{
+						"day": "Tuesday",
+						"hours": ""
+					},
+					{
+						"day": "Wednesday",
+						"hours": ""
+					},
+					{
+						"day": "Thursday",
+						"hours": ""
+					},
+					{
+						"day": "Friday",
+						"hours": ""
+					},
+					{
+						"day": "Saturday",
+						"hours": ""
+					}
+				],
+				"details": [
+					{
+						"id": "1000",
+						"name": "Time Off",
+						"type": "",
+						"code": "",
+						"total_hours": [
+							{
+								"day": "Sunday",
+								"hours": ""
+							},
+							{
+								"day": "Monday",
+								"hours": ""
+							},
+							{
+								"day": "Tuesday",
+								"hours": ""
+							},
+							{
+								"day": "Wednesday",
+								"hours": ""
+							},
+							{
+								"day": "Thursday",
+								"hours": ""
+							},
+							{
+								"day": "Friday",
+								"hours": ""
+							},
+							{
+								"day": "Saturday",
+								"hours": ""
+							}
+						],
+						"tasks": [
+							{
+								"name": "FMLA",
+								"weekly_hours": [
+									{
+										"day": "Sunday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Monday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Tuesday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Wednesday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Thursday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Friday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Saturday",
+										"hours": "",
+										"status": "unspecified"
+									}
+								],
+								"weekly_total": [
+									{
+										"hours": ""
+									}
+								]
+							},
+							{
+								"name": "Illness",
+								"weekly_hours": [
+									{
+										"day": "Sunday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Monday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Tuesday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Wednesday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Thursday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Friday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Saturday",
+										"hours": "",
+										"status": "unspecified"
+									}
+								],
+								"weekly_total": [
+									{
+										"hours": ""
+									}
+								]
+							},
+							{
+								"name": "Jury Duty",
+								"weekly_hours": [
+									{
+										"day": "Sunday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Monday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Tuesday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Wednesday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Thursday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Friday",
+										"hours": "",
+										"status": "unspecified"
+									},
+									{
+										"day": "Saturday",
+										"hours": "",
+										"status": "unspecified"
+									}
+								],
+								"weekly_total": [
+									{
+										"hours": ""
+									}
+								]
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}
